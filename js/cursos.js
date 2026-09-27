@@ -10,7 +10,7 @@ export function listarCursos(usuario) {
 
     
     if (cursosDoUsuario.length > 0) {
-      //Se o tamanho for maior que zero a Promise é resolvida com sucesso e entrega o array contendo a lista de cursos encontrados.
+      //Se o tamanho for maior que zero a Promise é resolvida com sucesso e retorna o array contendo a lista de cursos encontrados.
       resolve(cursosDoUsuario);
     } else {
       reject("Não há cursos cadastrados para esse usuário");

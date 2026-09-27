@@ -1,14 +1,14 @@
 import { usuarios } from "../dados/listagen-usuarios.js";
 
-//função com parametros de usuario e senha que retorna uma promise
+// Função que recebe o e-mail (no parâmetro usuario) e a senha, retornando uma Promise de autenticação
 export function login(usuario, senha) {
   return new Promise((resolve, reject) => {
 
-    //a variavel usuarioEncontrado recebe o metodo .find que percorre o array usuarios afim de verificar atravez da arrow function  se o email e senha recebidos no login são iguais aos dados cadastrados no arquivo usuarios o qual foi importado da pasta dados
+     // A variável usuarioEncontrado armazena o resultado do método .find(), que percorre o array usuarios. A arrow function verifica se o e-mail e a senha informados correspondem a algum usuário cadastrado.
     const usuarioEncontrado = usuarios.find(
       (u) => u.email === usuario && u.senha === senha);
     
-      //se o resultado for verdadeiro a função resolve é retornada com os dados do usuario.
+      // Se o usuário for encontrado, a função resolve é executada passando um objeto com os dados públicos do usuário.
       if (usuarioEncontrado) {
         resolve({
           id: usuarioEncontrado.id,

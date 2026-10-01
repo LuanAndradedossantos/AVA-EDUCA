@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Teste</title>
+</head>
+<body>
+  <h1>Abra o console (F12) para ver os resultados</h1>
+
+  <script type="module">
+  import { Aluno } from "./js/aluno.js";
+  import { cadastrarAluno } from "./js/alunos.js";
+
+  // Simula os dados que viriam de um formulário preenchido.
+  const novoAluno = new Aluno({
+    nome: "João Pedro Alves",
+    genero: "Masculino",
+    dataNascimento: "2000-03-10",
+    cpf: "111.222.333-44",
+    telefone: "(11) 91234-5678",
+    email: "joao.alves@email.com",
+    cep: "01310-000",
+    cidade: "São Paulo",
+    estado: "SP",
+    logradouro: "Av. Paulista",
+    numero: "1000",
+    complemento: "",
+    bairro: "Bela Vista"
+  });
+
+  console.log("Objeto criado pela classe (sem id ainda):", novoAluno);
+
+  cadastrarAluno(novoAluno)
+    .then((msg) => console.log(msg))
+    .catch((erro) => console.error(erro));
+</script>
+
+  <!--<script type="module">
+    import { login } from "./js/auth.js";
+    import { listarCursos } from "./js/cursos.js";
+
+    // Teste 1: login certo, encadeado com listarCursos
+    login("ana.silva@edutech.com", "123456")
+      .then((usuario) => {
+        console.log("Login OK:", usuario);
+        return listarCursos(usuario); // devolve outra Promise
+      })
+      .then((cursos) => console.log("Cursos encontrados:", cursos))
+      .catch((erro) => console.error("Erro:", erro));
+
+    // Teste 2: senha errada
+    login("ana.silva@edutech.com", "senhaerrada")
+      .then((usuario) => console.log("Login OK:", usuario))
+      .catch((erro) => console.error("Teste senha errada ->", erro));
+
+    // Teste 3: usuário sem cursos (Mariana)
+    login("mariana.costa@edutech.com", "edu2026")
+      .then((usuario) => listarCursos(usuario))
+      .then((cursos) => console.log("Cursos:", cursos))
+      .catch((erro) => console.error("Teste sem cursos ->", erro));
+  </script>-->
+</body>
+</html>

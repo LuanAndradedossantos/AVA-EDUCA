@@ -7,7 +7,6 @@ body {
   margin: 0;
 }
 
-/* Flexbox no cabeçalho: um item de cada lado */
 #cabecalho {
   display: flex;
   justify-content: space-between;
@@ -22,14 +21,13 @@ body {
   font-size: 1.2rem;
 }
 
-/* Flexbox no menu: os botões em coluna, lado esquerdo da tela */
 #menu-lateral {
   display: flex;
   flex-direction: column;
   width: 200px;
   background-color: #34495e;
   padding: 1rem;
-  gap: 0.5rem; /* espaço entre os botões */
+  gap: 0.5rem;
 }
 
 #menu-lateral button {
@@ -54,4 +52,27 @@ main {
   /*flex:1 é para o container ocupar todo o espaço que sobrar depos do menu lateral*/
   flex: 1;
   padding: 2rem;
+}
+
+
+.grid-cursos {
+  display: grid;
+  /* repeat(auto-fill, ...) cria quantas colunas couberem,
+     cada uma com no mínimo 250px e esticando até preencher o espaço */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card-curso {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-curso h3 {
+  margin-top: 0;
+  color: #2c3e50;
 }
